@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="filecomp:jar">
+    <output-path>$USER_HOME$/Desktop/pluginout</output-path>
+    <root id="archive" name="filecomp.jar">
+      <element id="module-output" name="filecomp" />
+    </root>
+  </artifact>
+</component>
