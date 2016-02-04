@@ -22,7 +22,7 @@ public class filecomp {
         for(String fileName: directoryContents) {
             File temp = new File(String.valueOf(directory),fileName);
             fileLocations.add(String.valueOf(temp));
-            if(String.valueOf(temp).contains("_")) {
+            if(String.valueOf(temp).contains("_ref")) {
                 input=temp;
                 System.out.println(String.valueOf(temp));
             }
@@ -30,6 +30,10 @@ public class filecomp {
         try {
             Scanner in = new Scanner(input);
             Scanner in2 = new Scanner(input2);
+            File output = new File("output.txt");
+            FileWriter fw = new FileWriter(output);
+            BufferedWriter bw = new BufferedWriter(fw);
+            String end="";
             int i =1;
             while(in.hasNext()&&in2.hasNext()){
                 String out;
@@ -42,11 +46,18 @@ public class filecomp {
                     System.out.println(i+"true");
                 }else{
                     System.out.println(i+"false");
+                    end=(end+"<"+i+">");
+
                 }
                 i++;
                 //System.out.println(out);
             }
+            bw.write(end);
+            bw.newLine();
+            bw.close();
         }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
             e.printStackTrace();
         }
 
